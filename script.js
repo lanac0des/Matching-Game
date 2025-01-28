@@ -1,4 +1,5 @@
 let numberOfFaces = 5;
+let level = 1;
 const theLeftSide = document.querySelector('#leftSide');
 const theRightSide = document.querySelector('#rightSide');
 
@@ -13,6 +14,9 @@ function generateFaces() {
         theLeftSide.appendChild(face);
     }
 
+    let lvldisplay = document.createElement('h2');
+    lvldisplay = 'Level' + level;
+
     const leftSideImages = theLeftSide.cloneNode(true);
     leftSideImages.removeChild(leftSideImages.lastChild);
     theRightSide.appendChild(leftSideImages);
@@ -24,6 +28,7 @@ function generateFaces() {
 function nextLevel(event) {
     event.stopPropagation();
     numberOfFaces += 5;
+    level++;
 
     while (theLeftSide.firstChild) {
         theLeftSide.removeChild(theLeftSide.firstChild);
