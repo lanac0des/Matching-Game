@@ -1,5 +1,6 @@
 let numberOfFaces = 5;
 let level = 1;
+let lvldisplay = document.querySelector('.lvl');
 const theLeftSide = document.querySelector('#leftSide');
 const theRightSide = document.querySelector('#rightSide');
 
@@ -14,15 +15,21 @@ function generateFaces() {
         theLeftSide.appendChild(face);
     }
 
-    let lvldisplay = document.createElement('h2');
-    lvldisplay = 'Level' + level;
-
     const leftSideImages = theLeftSide.cloneNode(true);
     leftSideImages.removeChild(leftSideImages.lastChild);
     theRightSide.appendChild(leftSideImages);
 
     theLeftSide.lastChild.addEventListener('click', nextLevel);
     document.body.addEventListener('click', gameOver);
+    
+}
+
+let lvldis = document.createElement('h2');
+lvldis.textContent ='Level: ' + level;
+lvldisplay.appendChild(lvldis);
+
+function levelUp() {
+    lvldis.textContent ='Level: ' + level;
 }
 
 function nextLevel(event) {
@@ -37,10 +44,11 @@ function nextLevel(event) {
         theRightSide.removeChild(theRightSide.firstChild);
     }
     generateFaces();
+    levelUp();
 }
 
 function gameOver() {
-    alert('Game Over!');
+    alert('Game Over! Score: ' + (level - 1));
     document.body.removeEventListener('click', gameOver);
     leftSideImages.lastChild.removeEventListener('click', nextLevel);
 }
