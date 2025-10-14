@@ -1,5 +1,6 @@
 img {
     position: absolute;
+    background-color: transparent;
 }
 
 div {
@@ -13,6 +14,20 @@ div {
     border-left: 1px solid;
 }
 
+#icons {
+    left: 1000px;
+    width: 250px;
+    background-color: plum;
+}
+
+#peach {
+    left: 12px;
+    top: 20px;
+    width: 225px;
+    background-color: transparent;
+}
+
 * {
     text-align: center;
+    background-color: rgb(179, 134, 238);
 }
